@@ -70,4 +70,25 @@ class Home_controller extends CI_Controller{
 		$this->load->view('table');
 
 	}
+
+	public function addBook(){
+		if ( !file_exists('application/views/table.php') ) {
+            show_404();
+		}
+		
+		$data["title"] = "Přidat knihu";
+		$data["menu"] = $this->Db_model->getMenu();
+		$data["categories"] = $this->Db_model->getCategories();
+
+		
+		$this->load->view('header', $data);
+		$this->load->view('add_book');
+	}
+
+	public function addBookDb(){
+		$this->Db_model->addBookDb();
+
+		$this->session->set_flashdata('pridana', 'Kniha byla přidána');
+		redirect(base_url('kniha/pridat'));
+	}
 }

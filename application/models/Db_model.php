@@ -105,4 +105,29 @@ class Db_model extends CI_Model{
 		$result = $this->table->generate($resultset);*/
 		return $resultset->result();
 	}
+
+	public function getCategories(){
+		$this->db->select('id_kategorie, nazev_kategorie');
+		$this->db->from('kategorie');
+		$this->db->order_by('id_kategorie', 'ASC');
+
+		$resultset = $this->db->get();
+		return $resultset->result();
+	}
+
+	public function addBookDb(){
+		$prebal = NULL;
+		if(!empty($this->input->post('prebal-knihy'))){
+			$prebal = $this->input->post('prebal-knihy');
+		}
+		$data = [
+			"nazev_knihy" => $this->input->post('nazev-knihy'),
+			"autor_knihy" => $this->input->post('nazev-autora'),
+			"pocet_stranek" => $this->input->post('pocet-stranek'),
+			"anotace" => $this->input->post('anotace'),
+			"prebal_knihy" => $prebal,
+			"id_kategorie" => $this->input->post('id-kategorie')
+		];
+		$this->db->insert('knihy', $data);
+	}
 }

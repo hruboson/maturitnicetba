@@ -72,17 +72,22 @@ class Home_controller extends CI_Controller{
 	}
 
 	public function addBook(){
-		if ( !file_exists('application/views/table.php') ) {
+		if ( !file_exists('application/views/add_book.php') ) {
             show_404();
 		}
 		
+		$this->load->library('ion_auth');
 		$data["title"] = "Přidat knihu";
 		$data["menu"] = $this->Db_model->getMenu();
 		$data["categories"] = $this->Db_model->getCategories();
 
 		
 		$this->load->view('header', $data);
-		$this->load->view('add_book');
+		if($this->ion_auth->logged_in()){
+			$this->load->view('add_book');
+		}else{
+			redirect(base_url('auth/login'));
+		}
 	}
 
 	public function addBookDb(){

@@ -94,3 +94,10 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+/* 	'username' => 'hrubos1610699812',
+
+	'password' => 'ilPd2sub',
+
+	'database' => 'hrubos1610699812',
+*/

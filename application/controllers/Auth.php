@@ -882,6 +882,7 @@ class Auth extends CI_Controller
 
 		$this->data["menu"] = $this->Db_model->getMenu();
 		$this->data["logged_in"] = $this->ion_auth->logged_in();
+		$this->session->set_userdata('logged_in', $this->ion_auth->logged_in());
 		
 		$this->load->view('header', $this->data);
 		$view_html = $this->load->view($view, $viewdata, $returnhtml);

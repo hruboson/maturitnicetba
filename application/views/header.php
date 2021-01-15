@@ -45,13 +45,18 @@
                                     Uživatel
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php if($this->session->userdata('logged_in')){?>
                                     <a class="dropdown-item" href="<?php echo base_url('kniha/pridat'); ?>"><button type="button" class="btn btn-warning" style="margin-right: 10px;">Přidat knihu</button></a>
+                                    <?php }else{ ?>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/create_user'); ?>"><button type="button" class="btn btn-warning" style="margin-right: 10px;">Registrace</button></a>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/login'); ?>"><button type="button" class="btn btn-warning" style="margin-right: 10px;">Přihlásit se</button></a>
+                                    <?php } ?>
+                                    <?php if($this->session->userdata('logged_in')){?>
                                     <a class="dropdown-item" href="<?php echo base_url('auth/logout'); ?>"><button type="button" class="btn btn-warning" style="margin-right: 10px;">Odhlásit se</button></a>
+                                    <?php }else{} ?>
                                 </div>
                             </li>            
-                            <?php // nemohl jsem přijít na to jak passnout data z controlleru, jinak by tu byla podmínka, která by neukazovala tuto část, pokud by uživatel nebyl přihlášen ?>             
+                            <?php if($this->session->userdata('logged_in')){?>
                             <li class="nav-item" style="padding-left: 10px; padding-right: 10px;">
                                 <div class="row bg-info">
                                     <b>Přihlášený uživatel:</b>
@@ -60,7 +65,7 @@
                                     <?php echo $this->session->userdata('identity'); ?>
                                 </div>
                             </li>
-                           
+                           <?php }else{} ?>
                         </ul>
                     </div>
                 </nav>

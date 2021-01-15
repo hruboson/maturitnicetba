@@ -77,8 +77,8 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'web-0AUH',
-	'database' => 'hrubos_maturitni_cetba',
+	'password' => 'root',
+	'database' => 'maturitni-cetba',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -94,3 +94,10 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+/* 	'username' => 'hrubos1610699812',
+
+	'password' => 'ilPd2sub',
+
+	'database' => 'hrubos1610699812',
+*/

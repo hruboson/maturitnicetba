@@ -50,9 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Home_controller/home';
+$route['auth/create_user'] = 'Auth/create_user';
+$route['auth/login'] = 'Auth/login';
+$route['auth/logout'] = 'Auth/logout';
+$route['auth/manage'] = 'Auth/index';
 $route['domu'] = 'Home_controller/home';
 $route['tabulka_knih'] = 'Home_controller/bookTable';
 $route['kategorie/(:num)'] = 'Home_controller/kategorie/$1';
 $route['kniha/(:num)'] = 'Home_controller/book/$1';
+$route['kniha/pridat'] = 'Home_controller/addBook';
+$route['kniha/add'] = 'Home_controller/addBookDb';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
